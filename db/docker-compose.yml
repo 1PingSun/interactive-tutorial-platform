@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: tutorial_postgres
+    environment:
+      POSTGRES_DB: tutorial_db
+      POSTGRES_USER: tutorial_user
+      POSTGRES_PASSWORD: tutorial_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    restart: unless-stopped
+
+  # 可選：pgAdmin 管理介面
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: tutorial_pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@example.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "8080:80"
+    depends_on:
+      - postgres
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
