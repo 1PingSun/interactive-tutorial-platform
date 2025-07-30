@@ -1,0 +1,45 @@
+tasks:
+  - taskID: 1
+    taskTitle: "Web 基礎知識"
+    description: |
+      # Web 基礎知識
+
+      學習基本的 HTML 和 CSS 知識，了解網頁結構的基本概念。
+    questions:
+      - question: "什麼是 HTML 的全名？"
+        placeholder: "請輸入答案..."
+        answer: "HyperText Markup Language"
+        
+      - question: "什麼是 CSS 的全名？"
+        placeholder: "請輸入答案..."
+        answer: "Cascading Style Sheets"
+        
+  - taskID: 2
+    taskTitle: "JavaScript 基礎"
+    description: |
+      # JavaScript 基礎
+
+      學習 JavaScript 的基本語法和概念，包括變數、函數和事件處理。
+    questions:
+      - question: "在 JavaScript 中，如何宣告一個變數？"
+        placeholder: "var/let/const ..."
+        answer: "var name 或 let name 或 const name"
+        
+      - question: "JavaScript 中的函數如何定義？"
+        placeholder: "function ..."
+        answer: "function functionName() {}"
+    
+  - taskID: 3
+    taskTitle: "React 組件"
+    description: |
+      # React 組件
+
+      了解 React 組件的基本概念和 JSX 語法。
+    questions:
+      - question: "React 函數組件如何管理狀態？"
+        placeholder: "使用 Hook..."
+        answer: "useState"
+        
+      - question: "JSX 是什麼？"
+        placeholder: "JavaScript ..."
+        answer: "JavaScript XML"

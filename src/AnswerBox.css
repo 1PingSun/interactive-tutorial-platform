@@ -1,0 +1,138 @@
+.answer-box {
+    margin: 20px;
+}
+
+.answer-box .header {
+    background-color: #212121;
+    display: grid;
+    grid-template-columns: 60px 30px auto 30px;
+    gap: 0.5em;
+    align-items: center;
+    padding: 1em;
+    border-radius: 8px;
+}
+
+.answer-box .header {
+    cursor: pointer;
+}
+
+.answer-box .header h2 {
+    width: 100%;
+    font-size: 16px;
+    color: #fff;
+    margin: 0;
+}
+
+.answer-box .header .task-count {
+    text-align: center;
+}
+
+.answer-box .header .task-title {
+    text-align: start;
+    font-weight: normal;
+}
+
+.answer-box .header {
+  .arrow-down {
+    width: 30px;
+    height: 30px;
+    position: relative;
+  }
+
+  .arrow-down:before, .arrow-down:after {
+    content: "";
+    display: block;
+    width: 12px;
+    height: 3px;
+    background: white;
+    position: absolute;
+    top: 12px;
+    transition: transform .5s;
+  }
+
+  .arrow-down:before {
+    right: 12px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    transform: rotate(45deg);
+  }
+
+  .arrow-down:after {
+    right: 6px;
+    transform: rotate(-45deg);
+  }
+
+  .arrow-down.active:before {
+    transform: rotate(-45deg);
+  }
+
+  .arrow-down.active:after {
+    transform: rotate(45deg);
+  }
+}
+
+.answer-box .content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    background-color: #555555;
+    border-radius: 8px;
+    color: #fff;
+    padding: 0;
+    border-left: 4px solid #cfef00;
+}
+
+.answer-box .content.active {
+    max-height: 1000px;
+}
+
+.answer-box .content-container {
+    padding: 1em 2em;
+}
+
+.answer-box .description {
+    margin-bottom: 1em;
+}
+
+.answer-box .description h1,
+.answer-box .description h2,
+.answer-box .description h3 {
+    color: #ffffff;
+    margin: 0.5em 0;
+}
+
+.answer-box .quiz {
+    border-radius: 8px;
+    margin-bottom: 1em;
+}
+
+.answer-box .question {
+    margin-bottom: 1em;
+}
+
+.answer-box .answer {
+    display: flex;
+    gap: 1em;
+    align-items: center;
+}
+
+.answer-box .content .quiz .answer {
+    border-radius: 8px;
+    display: grid;
+    grid-template-columns: auto 130px;
+    gap: 1em;
+    align-items: center;
+}
+
+.answer-box .question-block {
+    padding: 1em;
+}
+
+.answer-box .question-block:last-child {
+    margin-bottom: 0;
+}
+
+.answer-box .question p {
+    margin: 0;
+    font-size: 16px;
+}
