@@ -20,11 +20,14 @@ const Button = ({ expectedAnswer }) => {
 }
 
 const StyledWrapper = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  
   button {
     cursor: pointer;
     font-weight: 700;
     transition: all 0.2s;
-    padding: 10px 15px;
+    padding: 8px 12px;
     border-radius: 100px;
     background: #cfef00;
     border: 1px solid transparent;
@@ -38,8 +41,8 @@ const StyledWrapper = styled.div`
   }
 
   button > svg {
-    width: 20px;
-    margin-left: 10px;
+    width: 16px;
+    margin-left: 8px;
     transition: transform 0.3s ease-in-out;
   }
 
