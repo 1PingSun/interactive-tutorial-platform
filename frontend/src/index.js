@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import AnswerBox from './AnswerBox';
+import Navbar from './Navbar';
 import yaml from 'js-yaml';
 
 function App() {
@@ -29,7 +30,11 @@ function App() {
   }
 
   return (
-    <div>
+  <div>
+      <div>
+        <Navbar />
+      </div>
+
       {tasks.map(task => (
         <AnswerBox key={task.taskID} taskData={task} />
       ))}
