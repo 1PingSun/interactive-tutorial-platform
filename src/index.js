@@ -1,8 +1,41 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+import AnswerBox from './AnswerBox';
+import yaml from 'js-yaml';
+
+function App() {
+  const [tasks, setTasks] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    
+    fetch('/config.yml')
+      .then(response => response.text())
+      .then(yamlText => {
+        const config = yaml.load(yamlText);
+        setTasks(config.tasks);
+        setLoading(false);
+      })
+      .catch(error => {
+        console.error('Error loading config:', error);
+        setLoading(false);
+      });
+  }, []);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  return (
+    <div>
+      {tasks.map(task => (
+        <AnswerBox key={task.taskID} taskData={task} />
+      ))}
+    </div>
+  );
+}
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
