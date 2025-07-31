@@ -42,6 +42,26 @@ const checkAnswer = async (req, res) => {
         WHERE id = $1
       `;
       await pool.query(updateQuery, [questionid]);
+      
+      // 檢查該任務的所有問題是否都已完成
+      const checkTaskQuery = `
+        SELECT COUNT(*) as total_questions,
+               COUNT(CASE WHEN status = 'done' THEN 1 END) as completed_questions
+        FROM questions 
+        WHERE task_id = $1
+      `;
+      const taskResult = await pool.query(checkTaskQuery, [taskid]);
+      const { total_questions, completed_questions } = taskResult.rows[0];
+      
+      // 如果所有問題都完成了，更新任務狀態為 'done'
+      if (parseInt(total_questions) === parseInt(completed_questions)) {
+        const updateTaskQuery = `
+          UPDATE tasks 
+          SET status = 'done' 
+          WHERE id = $1
+        `;
+        await pool.query(updateTaskQuery, [taskid]);
+      }
     }
     
     res.json({
@@ -61,6 +81,31 @@ const checkAnswer = async (req, res) => {
   }
 };
 
+const resetAllStatus = async (req, res) => {
+  try {
+    // 重置所有問題狀態為 'notyet'
+    const resetQuestionsQuery = `UPDATE questions SET status = 'notyet'`;
+    await pool.query(resetQuestionsQuery);
+    
+    // 重置所有任務狀態為 'notyet'
+    const resetTasksQuery = `UPDATE tasks SET status = 'notyet'`;
+    await pool.query(resetTasksQuery);
+    
+    res.json({
+      success: true,
+      message: '所有問題和任務狀態已重置為 notyet'
+    });
+    
+  } catch (error) {
+    console.error('Error resetting status:', error);
+    res.status(500).json({
+      success: false,
+      error: 'Failed to reset status'
+    });
+  }
+};
+
 module.exports = {
-  checkAnswer
+  checkAnswer,
+  resetAllStatus
 };

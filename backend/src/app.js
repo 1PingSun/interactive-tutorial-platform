@@ -5,7 +5,7 @@ const { getAllTasks } = require('./controllers/tasksController');
 const { getArticleByTaskId } = require('./controllers/articlesController');
 const { getQuestionsByTaskId } = require('./controllers/questionsController');
 const { getQuestionStatusByTaskId } = require('./controllers/statusController');
-const { checkAnswer } = require('./controllers/answerController');
+const { checkAnswer, resetAllStatus } = require('./controllers/answerController');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -18,6 +18,7 @@ app.get('/api/article/:taskid', getArticleByTaskId);
 app.get('/api/questions/:taskid', getQuestionsByTaskId);
 app.get('/api/status/:taskid', getQuestionStatusByTaskId);
 app.post('/api/tasks/:taskid/question/:questionid', checkAnswer);
+app.post('/api/reset', resetAllStatus);
 
 app.use((err, req, res, next) => {
   console.error(err.stack);

@@ -41,3 +41,20 @@
 .btn:hover::after {
   transform: translateX(-50%) scaleX(1);
 }
+
+.reset-btn {
+  background: #dc3545;
+  border-radius: 4px;
+  font-weight: bold;
+  margin-left: auto;
+}
+
+.reset-btn::after {
+  background: #fff;
+  height: 2px;
+}
+
+.reset-btn:hover {
+  background: #c82333;
+  transform: scale(1.05);
+}

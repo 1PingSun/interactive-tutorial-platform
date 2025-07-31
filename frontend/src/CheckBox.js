@@ -2,11 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 import './CheckBox.css';
 
-const Checkbox = () => {
+const Checkbox = ({ checked = false }) => {
   return (
     <div className="checkbox-wrapper-12">
     <div className="cbx">
-        <input defaultChecked type="checkbox" id="cbx-12" />
+        <input checked={checked} type="checkbox" id="cbx-12" readOnly />
         <label htmlFor="cbx-12" />
         <svg fill="none" viewBox="0 0 15 14" height={14} width={15}>
         <path d="M2 8.36364L6.23077 12L13 2" />
