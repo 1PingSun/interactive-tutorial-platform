@@ -1,5 +1,13 @@
+CREATE TABLE IF NOT EXISTS rooms (
+    id SERIAL PRIMARY KEY,
+    room_id INTEGER,
+    name VARCHAR(255) NOT NULL,
+    file_path VARCHAR(500)
+);
+
 CREATE TABLE IF NOT EXISTS tasks (
     id SERIAL PRIMARY KEY,
+    room_id INTEGER REFERENCES rooms(id),
     name VARCHAR(255) NOT NULL,
     order_index INTEGER NOT NULL,
     status VARCHAR(50) DEFAULT 'notyet' -- 'notyet', 'done'
@@ -20,10 +28,13 @@ CREATE TABLE IF NOT EXISTS questions (
     status VARCHAR(50) DEFAULT 'notyet' -- 'notyet', 'done'
 );
 
-INSERT INTO tasks (name, order_index) VALUES
-('Web 基礎知識', 1),
-('JavaScript 基礎', 2),
-('React 組件', 3);
+INSERT INTO rooms (room_id, name, file_path) VALUES
+(1, 'Room Title', 'room_description.md');
+
+INSERT INTO tasks (room_id, name, order_index) VALUES
+(1, 'Web 基礎知識', 1),
+(1, 'JavaScript 基礎', 2),
+(1, 'React 組件', 3);
 
 INSERT INTO articles (task_id, file_path) VALUES
 (1, 'web-basics.md'),

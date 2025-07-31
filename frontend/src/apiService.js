@@ -2,6 +2,16 @@
 const API_BASE_URL = 'http://localhost:3001';
 
 export const apiService = {
+  // 獲取房間資訊（直接返回 markdown 內容）
+  async getRoomInfo(roomId) {
+    const response = await fetch(`${API_BASE_URL}/api/room/${roomId}`);
+    if (!response.ok) {
+      throw new Error('Failed to fetch room info');
+    }
+    // 直接返回 markdown 文本內容
+    return await response.text();
+  },
+
   // 獲取所有任務
   async getTasks() {
     const response = await fetch(`${API_BASE_URL}/api/tasks`);

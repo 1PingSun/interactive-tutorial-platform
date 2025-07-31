@@ -6,6 +6,7 @@ const { getArticleByTaskId } = require('./controllers/articlesController');
 const { getQuestionsByTaskId } = require('./controllers/questionsController');
 const { getQuestionStatusByTaskId } = require('./controllers/statusController');
 const { checkAnswer, resetAllStatus } = require('./controllers/answerController');
+const { getRoomInfo } = require('./controllers/roomController');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -13,6 +14,7 @@ const PORT = process.env.PORT || 3001;
 app.use(cors());
 app.use(express.json());
 
+app.get('/api/room/:roomid', getRoomInfo);
 app.get('/api/tasks', getAllTasks);
 app.get('/api/article/:taskid', getArticleByTaskId);
 app.get('/api/questions/:taskid', getQuestionsByTaskId);
@@ -30,11 +32,3 @@ app.listen(PORT, () => {
 });
 
 module.exports = app;
-
-/*
-GET /api/tasks
-GET /api/article/:taskid
-GET /api/questions/:taskid
-GET /api/status/:taskid
-POST /api/tasks/:taskid/question/:questionid
-*/

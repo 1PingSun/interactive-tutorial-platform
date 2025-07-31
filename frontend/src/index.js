@@ -5,6 +5,7 @@ import reportWebVitals from './reportWebVitals';
 import AnswerBox from './AnswerBox';
 import Navbar from './Navbar';
 import { apiService } from './apiService';
+import Intro from './Intro';
 
 function App() {
   const [tasks, setTasks] = useState([]);
@@ -58,6 +59,10 @@ function App() {
   <div>
       <div>
         <Navbar />
+      </div>
+
+      <div>
+        <Intro roomId="1" />
       </div>
 
       {tasks.map(task => (
