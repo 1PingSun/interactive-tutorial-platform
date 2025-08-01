@@ -83,15 +83,99 @@
 }
 
 .answer-box .content.active {
-    max-height: 1000px;
+    max-height: none;
 }
 
 .answer-box .content-container {
     padding: 1em 2em;
+    max-height: 70vh;
+    overflow-y: auto;
 }
 
 .answer-box .description {
+    margin-bottom: 2em;
+    line-height: 1.6;
+}
+
+.answer-box .description p {
     margin-bottom: 1em;
+}
+
+.answer-box .description code {
+    background-color: #333;
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
+    font-family: 'Courier New', monospace;
+}
+
+.answer-box .description pre {
+    background-color: #333;
+    padding: 1em;
+    border-radius: 5px;
+    overflow-x: auto;
+    margin: 1em 0;
+}
+
+.answer-box .description h1,
+.answer-box .description h2,
+.answer-box .description h3,
+.answer-box .description h4,
+.answer-box .description h5,
+.answer-box .description h6 {
+    color: #ffffff;
+    margin: 1em 0 0.5em 0;
+    border-bottom: 1px solid #666;
+    padding-bottom: 0.3em;
+}
+
+.answer-box .description ul,
+.answer-box .description ol {
+    margin: 1em 0;
+    padding-left: 2em;
+}
+
+.answer-box .description li {
+    margin-bottom: 0.5em;
+}
+
+.answer-box .description blockquote {
+    border-left: 4px solid #cfef00;
+    padding-left: 1em;
+    margin: 1em 0;
+    background-color: #3a3a3a;
+    padding: 1em;
+    border-radius: 4px;
+}
+
+.answer-box .description table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 1em 0;
+}
+
+.answer-box .description th,
+.answer-box .description td {
+    border: 1px solid #666;
+    padding: 0.5em;
+    text-align: left;
+}
+
+.answer-box .description th {
+    background-color: #444;
+    font-weight: bold;
+}
+
+.answer-box .description img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 1em 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.answer-box .description img:hover {
+    transform: scale(1.02);
+    transition: transform 0.2s ease;
 }
 
 .answer-box .description h1,
@@ -104,6 +188,9 @@
 .answer-box .quiz {
     border-radius: 8px;
     margin-bottom: 1em;
+    background-color: #444;
+    padding: 1em;
+    border: 1px solid #666;
 }
 
 .answer-box .question {
@@ -125,7 +212,11 @@
 }
 
 .answer-box .question-block {
-    padding: 1em;
+    padding: 1.5em;
+    margin-bottom: 1.5em;
+    background-color: #3a3a3a;
+    border-radius: 6px;
+    border-left: 3px solid #cfef00;
 }
 
 .answer-box .question-block:last-child {
@@ -133,6 +224,12 @@
 }
 
 .answer-box .question p {
-    margin: 0;
+    margin: 0 0 1em 0;
     font-size: 16px;
+    line-height: 1.5;
+}
+
+.answer-box .question strong {
+    color: #cfef00;
+    font-weight: bold;
 }
