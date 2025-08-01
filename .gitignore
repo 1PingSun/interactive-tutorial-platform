@@ -11,3 +11,6 @@ backend/.DS_Store
 backend/dist/
 backend/build/
 backend/*.log
+db/docker-compose.yml
+.env
+.gitignore
