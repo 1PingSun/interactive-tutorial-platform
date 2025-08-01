@@ -37,7 +37,7 @@ INSERT INTO tasks (room_id, name, order_index) VALUES
 (1, 'Task 3 - 工控協議滲透：Modbus概述', 3),
 (1, 'Task 4 - 工控協議操作：pymodbusTCP 常用函式介紹', 4),
 (1, 'Task 5 - 進階工控安全', 5),
-(1, 'LAB 1 – 用 PyModbus 讀保持暫存器', 6),
+(1, 'LAB 1 – 用 Modbus TCP 讀保持暫存器', 6),
 (1, 'LAB 2 – 寫入暫存器遠端控制', 7),
 (1, 'Lab 3 – ARP Spoofing 繞過 IP 白名單', 8),
 (1, 'LAB 4 - Wireshark 解析 Modbus', 9),
