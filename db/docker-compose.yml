@@ -13,7 +13,6 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
-    network_mode: "host"
     restart: unless-stopped
 
   # 可選：pgAdmin 管理介面
@@ -27,7 +26,6 @@ services:
       - "8080:80"
     depends_on:
       - postgres
-    network_mode: "host"
     restart: unless-stopped
 
 volumes:
