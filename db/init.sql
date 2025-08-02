@@ -39,9 +39,7 @@ INSERT INTO tasks (room_id, name, order_index) VALUES
 (1, 'Task 5 - 進階工控安全', 5),
 (1, 'LAB 1 – 用 Modbus TCP 讀保持暫存器', 6),
 (1, 'LAB 2 – 寫入暫存器遠端控制', 7),
-(1, 'Lab 3 – ARP Spoofing 繞過 IP 白名單', 8),
-(1, 'LAB 4 - Wireshark 解析 Modbus', 9),
-(1, 'LAB 5 - 竄改', 10);
+(1, 'Lab 3 – 透過 MiTM 攻擊繞過 IP 限制讀取 Modbus TCP', 8);
 
 
 INSERT INTO articles (task_id, file_path) VALUES
@@ -52,9 +50,7 @@ INSERT INTO articles (task_id, file_path) VALUES
 (5, 't5.md'),
 (6, 'lab1.md'),
 (7, 'lab2.md'),
-(8, 'lab3.md'),
-(9, 'lab4.md'),
-(10, 'lab5.md');
+(8, 'arp-bypass.md'),
 
 INSERT INTO questions (task_id, question_text, correct_answer, order_index) VALUES
 (1, 'PLC 是什麼的縮寫？（共 26 個英文字元）', 'Programmable Logic Controller', 1),
@@ -82,13 +78,5 @@ INSERT INTO questions (task_id, question_text, correct_answer, order_index) VALU
 (7, '用來寫入單一 holding register 的 Modbus TCP 函式名稱為何？（三個英文單字，中間以"_"間隔）', 'write_single_register', 1),
 (7, '在程式碼中，用來讀取暫存器進行驗證的函式名稱為何？（三個英文單字，中間以"_"間隔）', 'read_holding_registers', 2),
 (7, '批量寫入多個暫存器時，傳入的參數 new_values 是什麼資料型態？（一個英文單字）', 'list', 3),
-(8, '在 arpspoof 指令中，用來指定網路介面的參數為何？（一個指令）', '-i', 1),
-(8, '在 Wireshark 中，ARP Reply 封包的 opcode 欄位值為何？（一個十進位整數）', '2', 2),
-(8, '當 ARP Spoofing 成功時，Wireshark 的專家資訊會顯示什麼警告訊息？（四個英文關鍵字）', 'Duplicate IP address detected', 3),
-(9, '在 Wireshark 中，用來過濾 Modbus 讀取操作的語法為何？（英文語法，中間有使用到"=="）', 'modbus.func_code == 3', 1),
-(9, 'Modbus TCP 標頭中，用來識別設備的欄位名稱為何？（兩個英文單字）', 'UNIT ID', 2),
-(9, 'Function Code 6 在 Wireshark 中對應的操作名稱為何？（三個英文單字）', 'Write Single Register', 3),
-(10, '在 Python 中，用來打包二進制資料的模組名稱為何？（一個英文單字）', 'struct', 1),
-(10, 'Modbus TCP 的 MBAP Header 總長度是多少位元組？（一個十進位整數）', '7', 2),
-(10, 'Function Code 的異常回應會設定哪一個位元？（一個十六進制數字）', '0x80', 3),
+(8, '在 ettercap 指令中，不是用 GUI 的參數為何？（一個指令）', '-T', 1),
 (5, '輸入 Wireshark 即可通過', 'Wireshark', 1);
