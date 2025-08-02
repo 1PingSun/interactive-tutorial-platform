@@ -1,5 +1,5 @@
 // API 服務
-const API_BASE_URL = 'http://thm.1ping.org:3001';
+const API_BASE_URL = 'http://host.docker.internal:3001';
 
 export const apiService = {
   // 獲取房間資訊（直接返回 markdown 內容）
